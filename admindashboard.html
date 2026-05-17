@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Admin Dashboard</title>
+<style>
+body{font-family:Arial;background:#0f172a;color:#fff;margin:1px}
+header{background:#020617;padding:15px;display:flex;justify-content:space-between}
+h1{color:#22c55e}
+nav a{color:#fff;margin-left:15px;text-decoration:none;text-transform: lowercase;}
+}
+.container{padding:20px}
+.card{background:#020617;padding:20px;border-radius:10px;margin-bottom:15px}
+button{padding:10px;background:#22c55e;border:none;border-radius:15px;cursor:pointer;font-size: 16px;}
+button:hover{
+	background: black;
+	color: white;
+	transition: 0.2s ease;
+	font-size: 15px;
+}
+input{
+	font-size: 16px;
+	border-radius: 10px;
+	height: 30px;
+}
+.move-left{
+	position: relative;
+	animation: move-right 72s linear infinite;
+}
+@keyframes move-right
+	from {right:-100%;}
+	to{right:100%}
+}
+.move-right{
+	position: relative;
+	animation: move-right 72s linear infinite;
+}
+@keyframes moveleft{
+	from{left:100%;}
+	to{left:-100%;}
+}
+</style>
+</head>
+<body>
+<header>
+<h1 class="move-right">Admin Panel</h1>
+<nav>
+<button><a onclick="show('home')">Home</a></button>
+<button><a onclick="show('students')">Students</a></button>
+<button><a onclick="show('parents')">Parents</a></button>
+<button><a onclick="show('reports')">Reports</a></button>
+<button><a href="e-schoollogin.html">Logout</a></button>
+</nav>
+</header>
+
+<div class="container">
+
+<div id="home" class="card">
+<h2>Dashboard</h2>
+<p>Welcome Admin</p>
+</div>
+
+<div id="students" class="card" style="display:none">
+<h2>Manage Students</h2>
+<input type="text" id="studentName" placeholder="Student Name">
+<button onclick="addStudent()">Add Student</button>
+<ol id="studentList"></ol>
+</div>
+
+<div id="reports" class="card" style="display:none">
+<h2>Reports</h2>
+<p>View all student reports here</p>
+</div>
+
+</div>
+
+<script>
+function show(id){
+ document.querySelectorAll('.card').forEach(c=>c.style.display='none');
+ document.getElementById(id).style.display='block';
+}
+
+function addStudent(){
+ let name=document.getElementById('studentName').value;
+ let li=document.createElement('li');
+ li.textContent=name;
+ document.getElementById('studentList').appendChild(li);
+}
+
+function logout(){
+ alert("Logged out");
+}
+</script>
+
+</body>
+</html>
