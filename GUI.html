@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="rw">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Registration System</title>
+    <style>
+        /* Imisusire rusange (General Styles) */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background-color: #2c3e50;
+            display: flex;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .main-container {
+            width: 1000px;
+            background-color: #1a2a3a;
+            border: 2px solid #000;
+            box-shadow: 0 0 15px rgba(0,0,0,0.5);
+        }
+
+        /* Umutwe wa Page (Header Section) */
+        .header {
+            background-color: #ed6a7a;
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px solid #000;
+        }
+
+        .header h1 {
+            color: white;
+            font-size: 24px;
+            text-transform: uppercase;
+            flex-grow: 1;
+            text-align: center;
+        }
+
+        .search-area {
+            display: flex;
+            gap: 5px;
+        }
+
+        .search-input {
+            padding: 5px;
+            border-radius: 13px;
+            border: none;
+
+        }
+
+        .search-btn {
+            background-color: #74b9ff;
+            padding: 5px 15px;
+            border: 1px solid #000;
+            cursor: pointer;
+            font-weight: bold;
+            border-radius: 19px;
+        }
+        .search-btn:hover{
+            background: white;
+            color: black;
+        }
+
+        /* Ibisobanuro by'ibanze (Top Info) */
+        .top-info {
+            padding: 15px;
+            display: flex;
+            justify-content: space-between;
+            color: white;
+            font-weight: bold;
+        }
+
+        .top-info input {
+            width: 120px;
+            margin-left: 10px;
+            background: white;
+            border: none;
+            padding: 2px 5px;
+        }
+
+        /* Igice cy'ifomu (Main Form Area) */
+        .content-wrapper {
+            display: flex;
+            padding: 20px;
+            gap: 20px;
+        }
+
+        .form-sections {
+            flex: 3;
+        }
+
+        /* Udusanduku tw'amakuru (Fieldsets) */
+        .details-box {
+            background-color: #d1d5db;
+            border: 2px solid #555;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            position: relative;
+        }
+
+        .details-box h3 {
+            position: absolute;
+            top: -12px;
+            left: 15px;
+            background-color: #d1d5db;
+            padding: 0 10px;
+            font-size: 14px;
+            border: 1px solid #555;
+        }
+
+        .input-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-top: 10px;
+        }
+
+        .field {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .field label {
+            font-size: 13px;
+            font-weight: bold;
+            width: 100px;
+        }
+
+        .field input, .field select {
+            flex: 1;
+            padding: 4px;
+            border: 1px solid #999;
+        }
+
+        /* Igice cy'iburyo (Photo & Buttons) */
+        .sidebar {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            align-items: center;
+        }
+
+        .photo-frame {
+            width: 150px;
+            height: 180px;
+            background-color: white;
+            border: 2px solid #000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 55px;
+        }
+
+        .photo-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 25px;
+        }
+
+        /* Utubuto (Buttons) */
+        .btn {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #000;
+            font-weight: bold;
+            cursor: pointer;
+            border-radius: 23px;
+        }
+
+        .btn-upload { background-color: royalblue; }
+        .btn-save { background-color: #90ee95; }
+        .btn-reset { background-color: #ffb6c5; }
+        .btn-exit { background-color: red; }
+
+        .btn:hover { opacity: 0.8;transition:0.3s ease;background: green;}
+    </style>
+</head>
+<body>
+
+    <div class="main-container">
+        <div class="header">
+            <div style="width: 50px; background: #fff; height: 30px;"></div> <h1>Student Registration</h1>
+            <div class="search-area">
+                <input type="text"placeholder="search here by typing something" class="search-input">
+                <button class="search-btn">🔍 Search</button>
+            </div>
+        </div>
+
+        <div class="top-info">
+            <div>Registration NO: <input type="text"placeholder="xxxxx"></div>
+            <div>Date: <input type="text"placeholder="01/10/2k26"></div>
+        </div>
+
+        <div class="content-wrapper">
+            <div class="form-sections">
+                <div class="details-box">
+                    <h3>Student's Details</h3>
+                    <div class="input-grid">
+                        <div class="field"><label>Full Name:</label> <input type="text"placeholder="John Doe"></div>
+                        <div class="field">
+                            <label>Class:</label> 
+                            <select>
+                                <option>Select class</option>
+                                <option>Level 3</option>
+                                <option>Level 4</option>
+                                <option>Level 5</option>
+                                <option>Senior 4</option>
+                                <option>Senior 5</option>
+                                <option>Senior 6</option>
+                            </select>
+                        </div>
+                        <div class="field"><label>Date Of Birth:</label> <input type="text"placeholder="05/05/2005"></div>
+                        <div class="field"><label>Religion:</label> <input type="text"placeholder="Africa-Rwanda"></div>
+                        <div class="field">
+                            <label>Gender:</label> 
+                            <div style="flex:1; font-size: 12px;">
+                                <input type="radio" name="g" style="width: auto;"> Male
+                                <input type="radio" name="g" style="width: auto;"> Female
+                                <input type="radio" name="g" style="width: auto;"> Other
+                            </div>
+                        </div>
+                        <div class="field"><label>Skills:</label> <input type="text"placeholder="Soft / Hard skills"></div>
+                    </div>
+                </div>
+
+                <div class="details-box">
+                    <h3>Parent's Details</h3>
+                    <div class="input-grid">
+                        <div class="field"><label>Father's Name:</label> <input type="text"placeholder="Murindwa Paul"></div>
+                        <div class="field"><label>Mother's Name:</label> <input type="text"placeholder="Kaliza Inglid"></div>
+                        <div class="field"><label>Occupation:</label> <input type="text"placeholder="Bussines Man"></div>
+                        <div class="field"><label>Occupation:</label> <input type="text"placeholder="Governer"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="sidebar">
+                <div class="photo-frame">
+                    <img src="https://www.w3schools.com/howto/img_avatar.png" alt="Student Photo">
+                </div>
+                <button class="btn btn-upload">Upload</button>
+                <button class="btn btn-save">Save</button>
+                <button class="btn btn-reset">Reset</button>
+                <button class="btn btn-exit">Exit</button>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
